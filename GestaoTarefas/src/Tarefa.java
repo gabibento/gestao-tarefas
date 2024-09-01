@@ -31,15 +31,8 @@ public class Tarefa {
         return dataVencimento;
     }
 
-    public boolean setDataVencimento(String dataVencimento) {
-        DateTimeFormatter formatador = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        try{
-            this.dataVencimento = LocalDate.parse(dataVencimento, formatador);
-            return true;
-        }catch (DateTimeParseException e) {
-            System.out.println("Formato de data inválido. Por favor, use o formato yyyy-MM-dd.");
-            return false;
-        }
+    public void setDataVencimento(LocalDate dataVencimento) {
+        this.dataVencimento = dataVencimento;
     }
 
     public Status getStatus() {
@@ -52,11 +45,7 @@ public class Tarefa {
 
     @Override
     public String toString() {
-        return "Tarefa{" +
-                "titulo='" + titulo + '\'' +
-                ", descricao='" + descricao + '\'' +
-                ", dataVencimento=" + dataVencimento +
-                ", status=" + status +
-                '}';
+        return "titulo: " + titulo + ", Descrição: " + descricao +
+                ", data de vencimento: " + dataVencimento + ", status: " + status;
     }
 }
